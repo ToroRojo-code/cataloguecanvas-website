@@ -6,6 +6,8 @@ theme:
   name: material
   custom_dir: overrides
   language: en
+  logo: assets/logo.png
+  favicon: assets/logo.png
   font: false  # fonts loaded via overrides/main.html (Archivo / Spectral / IBM Plex Mono)
   palette:
     - scheme: catalog-light
@@ -28,9 +30,6 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
-
-extra_javascript:
-  - javascripts/accent.js
 
 markdown_extensions:
   - admonition
