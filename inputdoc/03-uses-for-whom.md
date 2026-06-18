@@ -21,8 +21,8 @@ portfolio without building a website.
 Each ZIP can hold the rendered image **plus** the source (`.py`, `.r`, `.js`, `.p5`, `.json`, …),
 keeping output and code together as one item.
 
-### Photographers & designers
-Organize shoots or design assets into collections, tag them, and share curated sets privately
+### Designers
+Organize design assets into collections, tag them, and share curated sets privately
 or publicly.
 
 ### Studios, archives & small teams
@@ -48,6 +48,7 @@ Runs in one Docker container with SQLite; full export/backup built in.
 
 <!-- Honesty here builds trust. Adjust to reality. -->
 
+- You're cataloguing a photo library — for that, use a dedicated photo manager like [Immich](https://immich.app/). CatalogueCanvas is built for digital art, illustration, and generative/algorithmic work, not photo collections.
 - You need multi-user accounts with granular per-user permissions today (current model: single admin + public portfolio viewers).
 - You want a hosted/managed SaaS with no self-hosting.
 - _TODO_

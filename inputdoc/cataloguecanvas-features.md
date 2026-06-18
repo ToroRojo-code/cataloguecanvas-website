@@ -2,7 +2,7 @@
 
 CatalogueCanvas is a self-hosted, domain-agnostic catalogue server. You ingest items as ZIP files, organize them into collections, enrich them with metadata and AI-generated descriptions, and publish curated portfolios as public slide-deck pages — all from a single Docker container.
 
-It is built for cataloguing any kind of visual or file-based work: generative art, illustrations, code sketches, photography, design assets, or mixed-media archives.
+It is built for cataloguing digital, file-based creative work: generative & algorithmic art, illustrations, code sketches, design assets, or mixed-media archives.
 
 ---
 

@@ -22,7 +22,7 @@ shouldn't require a SaaS account, lock-in, or surrendering your files to someone
 <!-- Keep each to a single sentence. These should be defensible and reflected in the product. -->
 
 - **Self-hosted & sovereign** — your catalogue, your disk, your data. No external account required.
-- **Domain-agnostic** — art, code, photography, design assets; the tool makes no assumptions.
+- **Domain-agnostic** — digital art, illustration, generative & algorithmic work, code, design assets; the tool makes no assumptions.
 - **Open** — open source under the GNU AGPL 3.0.
 - **Durable & portable** — plain ZIPs in, WebP/SQLite out; full backups one click away.
 - **Low footprint** — runs in a single container on modest hardware.

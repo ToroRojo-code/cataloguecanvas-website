@@ -16,7 +16,7 @@ home for your work that you fully control. Implementing [FAIR principles](https:
 ## Principles
 
 - **Self-hosted & sovereign** — your catalogue, your disk, your data. No external account required.
-- **Domain-agnostic** — art, code, photography, design assets; the tool makes no assumptions.
+- **Domain-agnostic** — digital art, illustration, generative & algorithmic work, code, design assets; the tool makes no assumptions.
 - **Open** — open source under the GNU AGPL 3.0.
 - **Durable & portable** — plain ZIPs in, WebP/SQLite out; full backups one click away.
 - **Low footprint** — runs in a single container on modest hardware. 

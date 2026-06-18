@@ -18,6 +18,7 @@ publish curated portfolios as shareable slide-deck pages.
 
 - **Ingest** — one ZIP becomes one catalogue item; the main image is auto-converted to a WebP preview.
 - **Organise** — group items into collections and a built-in Favourites set.
+- **Exploration** — simple quick exploration of the work uploaded, searchable
 - **Enrich** — edit titles, tags, and Markdown notes; optionally describe items with a vision LLM[^llm].
 - **Publish** — assemble portfolios and share them publicly at a `/p/<slug>` link.
 - **Store & back up** — keep assets across multiple libraries; export the database and all files.
@@ -39,4 +40,4 @@ publish curated portfolios as shareable slide-deck pages.
 - Want to run it? See **[Install](documentation/install.md)**.
 - Using it day to day? See the **[User documentation](documentation/user.md)**.
 
-[^llm]: **LLM** — a large language model. I use local models LM Studio, Ollama, llama-cpp. Because otherwise I would spend too much time trying to come out with something relevant.
+[^llm]: **LLM** — a large language model. I have tested local models in LM Studio, Ollama, llama-cpp. Because otherwise I would spend too much time trying to come out with something relevant.

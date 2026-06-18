@@ -16,8 +16,8 @@ Catalogue a body of work, keep notes and metadata per piece, and publish a clean
 ### Generative & creative coders
 Each ZIP can hold the rendered image **plus** the source (`.py`, `.r`, `.js`, `.p5`, `.json`, …), keeping output and code together as one item.
 
-### Photographers & designers
-Organise shoots or design assets into collections, tag them, and share curated sets privately or publicly.
+### Designers
+Organise design assets into collections, tag them, and share curated sets privately or publicly.
 
 ### Studios, archives & small teams
 A self-hosted, low-footprint catalogue that lives on your own hardware — no SaaS, no per-seat cost.
@@ -38,5 +38,6 @@ Runs in one Docker container with SQLite; full export/backup built in.
 
 ## When it may _not_ be the right fit
 
+- You're cataloguing a photo library — for that, use a dedicated photo manager like [Immich](https://immich.app/). CatalogueCanvas is built for digital art, illustration, and generative/algorithmic work, not photo collections.
 - You need fine-grained per-user permissions beyond the two built-in roles (multi-user mode offers **Admin** and view-only **Reader**, plus public portfolio viewers).
 - You want a hosted/managed SaaS with no self-hosting.
