@@ -1,0 +1,11 @@
+# Claude Code / Status Bank System — never commit
+CLAUDE.md
+CLAUDE-*.md
+.claude/
+
+# Python / uv
+.venv/
+__pycache__/
+
+# MkDocs build output
+site/

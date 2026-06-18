@@ -1,0 +1,275 @@
+/* ============================================================================
+   CatalogueCanvas Docs — design tokens & component styles
+   Ported from the Claude Design source "CatalogCanvas Docs.html":
+   IBM Plex Mono kickers, Spectral serif display, Archivo sans, oklch tokens,
+   vermilion accent, mode/accent presets. Mapped onto MkDocs Material variables.
+   ============================================================================ */
+
+/* ---- Design palette (light) ---- */
+:root,
+[data-md-color-scheme="catalog-light"] {
+  --bg: oklch(0.97 0.004 95);
+  --panel: oklch(1 0 0);
+  --panel-2: oklch(0.945 0.004 95);
+  --border: oklch(0.88 0.005 95);
+  --border-2: oklch(0.82 0.005 95);
+  --ink: oklch(0.2 0.004 95);
+  --ink-2: oklch(0.46 0.004 95);
+  --ink-3: oklch(0.62 0.004 95);
+  --accent: oklch(0.6 0.21 30);
+  --accent-wash: color-mix(in oklab, var(--accent) 12%, transparent);
+  --tip: oklch(0.55 0.11 158);
+  --warn: oklch(0.62 0.14 65);
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --sans: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --serif: 'Spectral', Georgia, serif;
+  color-scheme: light;
+}
+
+/* ---- Design palette (dark) ---- */
+[data-md-color-scheme="catalog-dark"] {
+  --bg: oklch(0.17 0.003 95);
+  --panel: oklch(0.205 0.003 95);
+  --panel-2: oklch(0.235 0.003 95);
+  --border: oklch(0.31 0.004 95);
+  --border-2: oklch(0.38 0.005 95);
+  --ink: oklch(0.96 0.003 95);
+  --ink-2: oklch(0.72 0.004 95);
+  --ink-3: oklch(0.55 0.004 95);
+  --accent: oklch(0.6 0.21 30);
+  --accent-wash: color-mix(in oklab, var(--accent) 12%, transparent);
+  --tip: oklch(0.68 0.12 162);
+  --warn: oklch(0.74 0.13 72);
+  color-scheme: dark;
+}
+
+/* ---- Accent presets (mirror the app's Appearance accents) ---- */
+[data-accent="default"]    { --accent: oklch(0.6 0.21 30); }
+[data-md-color-scheme="catalog-dark"][data-accent="default"] { --accent: oklch(0.6 0.21 30); }
+[data-accent="cobalt"]     { --accent: oklch(0.55 0.21 258); }
+[data-md-color-scheme="catalog-dark"][data-accent="cobalt"] { --accent: oklch(0.7 0.17 258); }
+[data-accent="terracotta"] { --accent: oklch(0.58 0.13 45); }
+[data-md-color-scheme="catalog-dark"][data-accent="terracotta"] { --accent: oklch(0.66 0.12 48); }
+[data-accent="forest"]     { --accent: oklch(0.52 0.11 155); }
+[data-md-color-scheme="catalog-dark"][data-accent="forest"] { --accent: oklch(0.62 0.12 158); }
+[data-accent="ink"]        { --accent: oklch(0.32 0.01 260); }
+[data-md-color-scheme="catalog-dark"][data-accent="ink"] { --accent: oklch(0.82 0.01 260); }
+
+/* ---- Wire design tokens into Material's variables ---- */
+[data-md-color-scheme="catalog-light"],
+[data-md-color-scheme="catalog-dark"] {
+  --md-primary-fg-color: var(--accent);
+  --md-accent-fg-color: var(--accent);
+  --md-default-bg-color: var(--bg);
+  --md-default-fg-color: var(--ink);
+  --md-default-fg-color--light: var(--ink-2);
+  --md-default-fg-color--lighter: var(--ink-3);
+  --md-typeset-color: var(--ink-2);
+  --md-typeset-a-color: var(--accent);
+  --md-code-bg-color: var(--panel-2);
+  --md-code-fg-color: var(--ink);
+  --md-footer-bg-color: var(--panel);
+  --md-footer-bg-color--dark: var(--panel-2);
+
+  --md-text-font: "Archivo";
+  --md-code-font: "IBM Plex Mono";
+}
+
+/* ============================ TYPOGRAPHY ============================ */
+body { font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+
+.md-typeset { font-size: 0.82rem; line-height: 1.6; }
+.md-typeset p { color: var(--ink-2); max-width: 64ch; }
+.md-typeset p strong, .md-typeset li strong { color: var(--ink); font-weight: 600; }
+
+/* Page H1 → Spectral serif display */
+.md-typeset h1 {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(32px, 4.6vw, 50px); line-height: 1.02;
+  letter-spacing: -0.015em; color: var(--ink);
+  margin: 0 0 18px; text-wrap: balance;
+}
+.md-typeset h2 {
+  font-family: var(--sans); font-weight: 700; font-size: 23px;
+  letter-spacing: -0.015em; color: var(--ink);
+  margin: 52px 0 16px; padding-bottom: 11px; border-bottom: 1px solid var(--border);
+}
+.md-typeset h3 {
+  font-family: var(--sans); font-weight: 700; font-size: 16.5px;
+  letter-spacing: -0.01em; color: var(--ink); margin: 32px 0 10px;
+}
+
+/* Kicker — the first paragraph in a page acting as eyebrow, opt-in via .kicker */
+.md-typeset .kicker {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 14px;
+}
+
+/* Lead paragraph */
+.md-typeset .lead {
+  font-size: 18px; line-height: 1.55; color: var(--ink-2);
+  margin: 0 0 22px; max-width: 62ch;
+}
+.md-typeset .lead strong { color: var(--ink); font-weight: 600; }
+
+/* Inline code & links */
+.md-typeset code {
+  font-family: var(--mono); background: var(--panel-2);
+  border: 1px solid var(--border); border-radius: 5px; color: var(--ink);
+}
+.md-typeset a { color: var(--accent); }
+
+/* ============================ TOP BAR ============================ */
+.md-header {
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  color: var(--ink); border-bottom: 1px solid var(--border);
+  box-shadow: none;
+}
+.md-header__title { font-weight: 700; letter-spacing: -0.01em; }
+.md-tabs { background: transparent; color: var(--ink-2); }
+
+/* ---- Accent picker (injected into header by accent.js) ---- */
+.cc-accent { display: inline-flex; gap: 7px; align-items: center; margin: 0 10px; }
+.cc-accent button {
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border);
+  cursor: pointer; padding: 0; transition: transform .15s;
+}
+.cc-accent button:hover { transform: scale(1.12); }
+.cc-accent button[aria-pressed="true"] { border-color: var(--ink); }
+@media (max-width: 600px) { .cc-accent { display: none; } }
+
+/* ============================ SIDEBAR NAV ============================ */
+.md-nav { font-size: 13.5px; }
+.md-nav__title {
+  font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.16em; color: var(--ink-3);
+}
+.md-nav__link {
+  color: var(--ink-2); font-weight: 500;
+  border-left: 2px solid transparent; padding-left: 10px;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.md-nav__link:hover { color: var(--ink); }
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  color: var(--accent); font-weight: 600;
+  border-left-color: var(--accent);
+  background: var(--accent-wash);
+}
+
+/* Right "On this page" TOC rail */
+.md-nav--secondary .md-nav__link { border-left: 2px solid var(--border); }
+.md-nav--secondary .md-nav__link--active { border-left-color: var(--accent); }
+
+/* ============================ ADMONITIONS ============================ */
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid color-mix(in oklab, var(--accent) 24%, var(--border));
+  border-left: 3px solid var(--accent);
+  border-radius: 9px;
+  background: color-mix(in oklab, var(--accent) 7%, var(--panel));
+  font-size: 14.5px; box-shadow: none;
+}
+.md-typeset .admonition-title {
+  font-family: var(--mono); font-size: 10.5px; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--accent);
+  background: transparent; border: 0; margin: 0; padding: 14px 18px 0;
+}
+.md-typeset .admonition-title::before { background-color: var(--accent); }
+.md-typeset .admonition > p { padding: 7px 18px 14px; margin: 0; color: var(--ink-2); }
+
+.md-typeset .admonition.tip {
+  --tipc: var(--tip);
+  border-color: color-mix(in oklab, var(--tip) 24%, var(--border));
+  border-left-color: var(--tip);
+  background: color-mix(in oklab, var(--tip) 7%, var(--panel));
+}
+.md-typeset .admonition.tip > .admonition-title { color: var(--tip); }
+.md-typeset .admonition.tip > .admonition-title::before { background-color: var(--tip); }
+
+.md-typeset .admonition.warning {
+  border-color: color-mix(in oklab, var(--warn) 24%, var(--border));
+  border-left-color: var(--warn);
+  background: color-mix(in oklab, var(--warn) 7%, var(--panel));
+}
+.md-typeset .admonition.warning > .admonition-title { color: var(--warn); }
+.md-typeset .admonition.warning > .admonition-title::before { background-color: var(--warn); }
+
+/* ============================ STEPS (ordered list) ============================ */
+.md-typeset ol.steps { counter-reset: step; list-style: none; margin: 4px 0 20px; padding: 0; }
+.md-typeset ol.steps li { position: relative; padding: 2px 0 18px 44px; color: var(--ink-2); max-width: 62ch; }
+.md-typeset ol.steps li::before {
+  counter-increment: step; content: counter(step, decimal-leading-zero);
+  position: absolute; left: 0; top: 0; width: 28px; height: 28px;
+  display: grid; place-items: center; font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--accent); background: var(--accent-wash);
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, var(--border)); border-radius: 7px;
+}
+.md-typeset ol.steps li:not(:last-child)::after {
+  content: ""; position: absolute; left: 13.5px; top: 30px; bottom: 4px; width: 1px; background: var(--border);
+}
+
+/* ============================ TABLES ============================ */
+.md-typeset table:not([class]) {
+  border: 0; border-radius: 0; font-size: 14px; box-shadow: none;
+}
+.md-typeset table:not([class]) th {
+  font-family: var(--mono); font-size: 10.5px; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--ink-3); font-weight: 500;
+  background: transparent; border-bottom: 1px solid var(--border-2);
+}
+.md-typeset table:not([class]) td {
+  border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink-2);
+}
+.md-typeset table:not([class]) tr:hover {
+  background: color-mix(in oklab, var(--accent) 4%, transparent);
+}
+.md-typeset table:not([class]) td strong { color: var(--ink); }
+
+/* ============================ CODE BLOCKS ============================ */
+.md-typeset pre > code { font-family: var(--mono); font-size: 12.5px; line-height: 1.75; }
+.md-typeset .highlight,
+.md-typeset pre {
+  border: 1px solid var(--border); border-radius: 10px; background: var(--panel);
+}
+
+/* ============================ KEYBOARD KEYS ============================ */
+.md-typeset kbd, .md-typeset .keys kbd {
+  font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--ink-2);
+  background: var(--panel); border: 1px solid var(--border-2); border-bottom-width: 2px;
+  border-radius: 5px; padding: 2px 6px; box-shadow: none;
+}
+
+/* ============================ IMAGE PLATES ============================ */
+.md-typeset figure {
+  margin: 22px 0; border: 1px solid var(--border); border-radius: 11px;
+  overflow: hidden; background: var(--panel);
+}
+.md-typeset figure img { display: block; width: 100%; }
+.md-typeset figure figcaption {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+  padding: 10px 14px; border-top: 1px solid var(--border); margin: 0;
+}
+
+/* Striped placeholder plate (use <div class="plate-ph">caption</div>) */
+.md-typeset .plate-ph {
+  aspect-ratio: 16 / 7; display: grid; place-items: center; margin: 22px 0;
+  border: 1px solid var(--border); border-radius: 11px;
+  background-color: var(--panel-2);
+  background-image: repeating-linear-gradient(45deg,
+    color-mix(in oklab, var(--ink) 5%, transparent) 0 11px, transparent 11px 22px);
+}
+.md-typeset .plate-ph::before {
+  content: attr(data-label); font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+  letter-spacing: 0.04em; background: var(--panel); padding: 5px 11px;
+  border: 1px solid var(--border); border-radius: 6px;
+}
+
+/* ============================ FOOTER PAGER ============================ */
+.md-footer__inner { border-top: 1px solid var(--border); }
+.md-footer { background: var(--bg); color: var(--ink-2); }
+.md-footer__link { opacity: 1; }
+.md-footer__title { font-family: var(--serif); }
+.md-footer-meta { background: var(--panel-2); }
+.md-copyright { color: var(--ink-3); font-family: var(--mono); font-size: 11px; }
