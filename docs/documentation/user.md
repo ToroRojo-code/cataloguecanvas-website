@@ -69,6 +69,20 @@ Select multiple items in the catalogue to:
 - **Download** all selected as one ZIP
 - Add to / remove from collections
 
+## Searching the catalogue
+
+The search bar reaches **all** of an item's metadata — not just its title, ID, and tags. Search
+is backed by a full-text index covering:
+
+- the **title**,
+- the **description / note**,
+- **tags**, and
+- the full contents of each item's uploaded `metadata.json` / `metadata.toml`.
+
+So an item can be found by any value buried in its metadata. Results are **ranked by relevance**,
+and **prefix matching** means partial words still match. Search runs on the server, so the whole
+catalogue is no longer sent to your browser to filter as you type.
+
 ## Collections
 
 - Create, rename, and describe collections.
@@ -93,4 +107,5 @@ Select multiple items in the catalogue to:
 
 - **Re-uploading the same ZIP?** It's deduplicated by content hash — no duplicate is created.
 - **Several images in one ZIP?** The preview is chosen by priority (PNG → JPEG → TIFF → SVG); a note explains which was used.
+- **Can't find an item?** Search covers titles, notes, tags, and the contents of uploaded `metadata.json` / `metadata.toml` — try a value from the item's metadata.
 - **Keyboard:** ← / → move between items on the item page.

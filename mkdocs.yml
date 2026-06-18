@@ -2,8 +2,8 @@ site_name: CatalogueCanvas Docs
 site_description: A domain-agnostic, self-hosted catalogue server — docs & showcase.
 docs_dir: docs
 
-repo_url: https://github.com/ToledoEM/cataloguecanvas
-repo_name: ToledoEM/cataloguecanvas
+repo_url: https://github.com/ToroRojo-code/CatalogueCanvas
+repo_name: ToroRojo-code/CatalogueCanvas
 
 copyright: >
   CatalogueCanvas — open source under the GNU AGPL v3.0.
@@ -16,7 +16,7 @@ theme:
   favicon: assets/logo.svg
   icon:
     repo: fontawesome/brands/github
-  font: false  # fonts loaded via overrides/main.html (Archivo / Spectral / IBM Plex Mono)
+  font: false # fonts loaded via overrides/main.html (Archivo / Spectral / IBM Plex Mono)
   palette:
     - scheme: catalog-light
       toggle:
@@ -67,9 +67,9 @@ nav:
       - Uploading items: catalog/uploading.md
   - Documentation:
       - Install: documentation/install.md
-      - Roadmap: documentation/roadmap.md
       - User documentation: documentation/user.md
       - Admin documentation: documentation/admins.md
+      - Roadmap: documentation/roadmap.md
       - Glossary: documentation/glossary.md
 
 plugins:

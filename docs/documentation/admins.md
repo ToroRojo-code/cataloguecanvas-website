@@ -96,6 +96,17 @@ Edit the raw **TOML** prompt used to build the LLM request. Placeholders:
 - Failures report the **actual cause** (connection, HTTP error, non-JSON, or no choices
   returned) rather than an opaque error.
 
+## Findable metadata (FAIR)
+
+- **Full-text search** covers every item's title, description/note, tags, and the full contents
+  of its uploaded `metadata.json` / `metadata.toml`. Results are ranked by relevance, with prefix
+  matching. Search is handled on the server.
+- Each item exposes a **machine-readable metadata record** in **JSON-LD** (schema.org / Dublin
+  Core) at `/api/items/{id}/metadata`, linked from the item page. The record uses the item's
+  persistent ID as its identifier, maps title, description, and tags to standard terms, and
+  carries the uploaded metadata as additional properties — so items are **findable and
+  harvestable by external tools** (the "F" in FAIR).
+
 ## How items are stored (operator view)
 
 - Each item lives under its library at `items/<item-id>/` with a `preview.webp` and an `other/` folder.

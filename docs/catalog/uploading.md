@@ -26,6 +26,33 @@ dropzone, or browse from disk — CatalogueCanvas renders a preview plate for ea
 
 <div class="plate-ph" data-label="screenshot · dropzone (drag state)"></div>
 
+## LLM integration
+
+CatalogueCanvas can describe an item's preview image with any **OpenAI-compatible vision LLM** — local (LM Studio, Ollama, llama.cpp) or hosted. Set the defaults once in **Settings → LLM defaults**, then generate a description from an item's page or in bulk across a selection.
+
+<ol class="steps" markdown>
+<li markdown>In **Settings → LLM defaults**, set the **API URL** and **model**. You can enter just the host and port (e.g. `http://host.docker.internal:1234`) — the `/v1/chat/completions` path is appended automatically.</li>
+<li markdown>Tune the output: **item type**, **summary focus**, number of **bullet points**, and **max words per bullet**.</li>
+<li markdown>On an item, click **Generate description (LLM)**, review the result, and **apply it to your notes**.</li>
+<li markdown>These notes are searchable, and editable. Rendered in markdown format[^format] </li>
+
+</ol>
+
+!!! tip "API keys are never stored"
+
+    An API key can be supplied **per request** — for a single item or for a bulk run — and is
+    used only for that request, never saved. Hosted endpoints that require a key work the same
+    way as keyless local servers.
+
+!!! note "Running in Docker?"
+
+    If CatalogueCanvas runs in a container and your LLM server runs on the host, point the API
+    URL at `http://host.docker.internal:<port>` — `localhost` inside the container refers to the
+    container itself. Reasoning from "thinking" models is stripped from results, and the request
+    timeout is 90 seconds to allow for slower local models.
+
+For full configuration and troubleshooting, see [Admin documentation → LLM / AI descriptions](../documentation/admins.md).
+
 ## Supported file types
 
 Most creative formats are catalogued natively. Anything we can't preview is still stored
@@ -78,3 +105,6 @@ items will change before you commit.
 
     Still stuck? Check your connection and retry — partial uploads resume automatically for up
     to 24 hours.
+
+
+[^format]: **External Guide** — [basic markdown syntax](https://markdownguide.offshoot.io/basic-syntax/)

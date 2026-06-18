@@ -19,6 +19,7 @@ title: Roadmap
 - ✅ Keyboard navigation between items (← / →)
 - ✅ Public portfolios (slide-deck) at `/p/<slug>`
 - ✅ Vision-LLM descriptions (OpenAI-compatible)
+- ✅ Full-text search over all metadata, plus a JSON-LD metadata record per item (FAIR — Findable)
 - ✅ Multi-library storage
 - ✅ Database + full-asset backup/export
 - ✅ Appearance settings (theme, accent, nav, density)

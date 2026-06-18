@@ -57,7 +57,24 @@ A SHA-256 hash of an uploaded ZIP used for **deduplication** — re-uploading id
 is skipped instead of duplicated.
 
 ### Metadata (`metadata.json` / `metadata.toml`)
-An optional file inside a ZIP. If present, its contents are read and stored with the item.
+An optional file inside a ZIP. If present, its contents are read and stored with the item, and
+included in the full-text search index.
+
+### Full-text search
+The catalogue search, backed by a server-side index covering each item's title, description/note,
+tags, and the full contents of its uploaded `metadata.json` / `metadata.toml`. Results are ranked
+by relevance, with prefix matching.
+
+### Metadata record (JSON-LD)
+A machine-readable description of an item in **JSON-LD** (schema.org / Dublin Core), served at
+`/api/items/{id}/metadata` and linked from the item page. It carries the item's persistent ID,
+standard terms for title/description/tags, and the uploaded metadata — making items findable and
+harvestable by external tools.
+
+### FAIR
+Findable, Accessible, Interoperable, Reusable — principles for [scientific data](https://www.go-fair.org/fair-principles/).
+CatalogueCanvas addresses the **Findable** principle through full-text search over all metadata
+and a JSON-LD metadata record per item.
 
 ### LZ4
 A fast compression format. **SVG source files are stored LZ4-compressed** on disk and
