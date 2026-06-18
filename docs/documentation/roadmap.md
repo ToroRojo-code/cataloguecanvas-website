@@ -6,14 +6,8 @@ title: Roadmap
 
 # Roadmap
 
-<p class="lead">Planned and proposed direction. Confirm each item's status before publishing — nothing here is a commitment or a date.</p>
+<p class="lead">Planned and proposed direction.</p>
 
-## Legend
-
-- ✅ Shipped
-- 🚧 In progress
-- 📋 Planned
-- 💡 Idea / under consideration
 
 ## Shipped
 
@@ -31,12 +25,10 @@ title: Roadmap
 
 ## In progress / planned
 
-- 📋 **Multi-user mode** — two roles: Admin (full) and Reader (view-only; admin menus hidden). Passwords must differ. _Not yet implemented._
+- 📋 **Multi-user mode** — two roles: Admin (full) and Reader (view-only; admin menus hidden). Passwords must differ.
 - 📋 Catalogue sorting & filtering controls
 - 💡 Render/store p5.js processing outputs
 - 💡 Version/build tag surfaced in the footer (no git tags exist yet)
-
-!!! warning "Note for editors"
-
-    This roadmap must be checked against the actual repository before each publish. Mark items
-    accurately — do not list unbuilt features as shipped.
+- 💡 Form a community 
+- 💡 Security audit for exposed versions
+- 💡 Templates for Porfolio. A rule-set-skill for LLM to generate one

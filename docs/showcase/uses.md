@@ -11,16 +11,13 @@ title: Uses & for whom
 ## Who it's for
 
 ### Artists & illustrators
-Catalogue a body of work, keep notes and metadata per piece, and publish a clean public
-portfolio without building a website.
+Catalogue a body of work, keep notes and metadata per piece, and publish a clean public portfolio without building a website.
 
 ### Generative & creative coders
-Each ZIP can hold the rendered image **plus** the source (`.py`, `.r`, `.js`, `.p5`, `.json`, …),
-keeping output and code together as one item.
+Each ZIP can hold the rendered image **plus** the source (`.py`, `.r`, `.js`, `.p5`, `.json`, …), keeping output and code together as one item.
 
 ### Photographers & designers
-Organise shoots or design assets into collections, tag them, and share curated sets privately
-or publicly.
+Organise shoots or design assets into collections, tag them, and share curated sets privately or publicly.
 
 ### Studios, archives & small teams
 A self-hosted, low-footprint catalogue that lives on your own hardware — no SaaS, no per-seat cost.

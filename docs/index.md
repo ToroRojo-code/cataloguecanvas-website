@@ -8,8 +8,7 @@ title: CatalogueCanvas
 
 <p class="lead">A domain-agnostic catalogue server: ingest <strong>ZIP items</strong> into a self-hosted app, organise them into collections, and share public portfolios — all from a single Docker container.</p>
 
-CatalogueCanvas is a self-hosted catalogue server. You ingest items as ZIP files, organise
-them into collections, enrich them with metadata and optional AI-generated descriptions, and
+CatalogueCanvas is a self-hosted catalogue server. You ingest items as ZIP files, organise them into collections, enrich them with metadata and optional AI-generated descriptions, and
 publish curated portfolios as shareable slide-deck pages.
 
 ## What it does
