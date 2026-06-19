@@ -29,6 +29,7 @@ title: Roadmap
 - ✅ Redacted diagnostic report (Settings or CLI)
 - ✅ On-brand 404 page
 
+
 ## In progress / planned
 
 - 📋 Catalogue sorting & filtering controls

@@ -46,6 +46,25 @@ tagging, favouriting, and LLM actions remain admin-only.
 supporting files (code, text, JSON, etc.). Optionally include `metadata.json` or `metadata.toml`
 and it will be read automatically.
 
+## Activity tray (background work)
+
+Long-running jobs — ZIP uploads, batch LLM descriptions, and single-item descriptions — run in a
+collapsible **activity tray** pinned to the bottom-right corner. Start a job and keep working
+elsewhere; the tray shows live progress so you don't lose sight of it.
+
+- The tray **persists across page navigation** — start an upload, move to another page, and watch
+  it finish.
+- Each task carries a **per-item log** with status (pending, in-progress, done, skipped, error)
+  and detail messages.
+- Clicking a task **takes you back to the page where it started**.
+- Running tasks can be **cancelled**; finished ones can be dismissed individually or cleared in
+  one click.
+
+!!! note
+
+    Tasks are tracked in the browser session. A full page reload or closing the tab clears the
+    tray — the work itself runs per-request on the server.
+
 ## Working with an item
 
 On an item's page you can:
