@@ -40,4 +40,25 @@ publish curated portfolios as shareable slide-deck pages.
 - Want to run it? See **[Install](documentation/install.md)**.
 - Using it day to day? See the **[User documentation](documentation/user.md)**.
 
+## Frequently asked questions
+
+<!-- TEMPLATE: collapsible FAQ. `???` = collapsed, `???+` = open by default.
+     Indent the answer by four spaces. Duplicate a block per question. -->
+
+??? question "What is CatalogueCanvas?"
+    A domain-agnostic, self-hosted catalogue server. You ingest items as ZIP files, organise them into collections, and publish curated portfolios at a shareable link or printed. All from a single Docker container.
+
+??? question "How is it license?"
+    CatalogueCanvas is fully open source and released under the [GNU AGPL v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). You can use it for any project, modify it, distribute it, and build on top of it without restriction or license fees. Just have to stay within the restriction of the license. 
+
+??? question "Can I contribute?"
+    Yes, please. All are welcome in the github of the project. Link at the top 
+
+??? question "Is CatalogueCanvas production ready?"
+    CC is release now as a beta, stable release. That means that it might change with future development. Breaking changes are to be avoided, but they might happend. Anyway, you will get a proper warning and custom scripts for transitions will be tested to avoid breaking installations.
+    That said, **I would not install it in a server open to the internet yet**.
+
+??? question "How do I report a problem? How do I ask for a new feature?"
+    Please create an issue in the github repository [LINK](https://github.com/ToroRojo-code/CatalogueCanvas/). And attach the systems log output from the script in settings, and/or a use case for the new feature.
+
 [^llm]: **LLM** — a large language model. I have tested local models in LM Studio, Ollama, llama-cpp. Because otherwise I would spend too much time trying to come out with something relevant.
