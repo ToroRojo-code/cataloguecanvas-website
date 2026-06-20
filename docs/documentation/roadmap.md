@@ -31,9 +31,12 @@ title: Roadmap
 - ✅ Catalogue sorting & filtering controls
 
 
-## In progress / planned
+## In progress / planned (not in order)
 
-- 💡 Render/store p5.js processing outputs
-- 💡 Form a community
-- 💡 Security audit for exposed versions
+- 🎥 Render/store p5.js processing outputs
+- 🔐 Watermark on portfolio images 
+- 📝 Security audit for exposed versions
 - 💡 Templates for portfolios — a rule-set skill for an LLM to generate one
+- 👀 Test [coverture](https://www.codacy.com/coverage)
+
+<!-- ✅🔐🎥💡👀 !®️♾️➰ 🔴🟠🟡🟢 -->
