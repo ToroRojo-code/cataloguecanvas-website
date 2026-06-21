@@ -302,3 +302,179 @@ body { font-family: var(--sans); -webkit-font-smoothing: antialiased; }
   .cc-footer__inner { grid-template-columns: 1fr; gap: 32px; }
   .cc-footer__cols { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ============================================================================
+   LANDING / INTRODUCTION PAGE — hero, screenshot, features, link rows
+   Adapted to Material's DOM. Consumes existing tokens
+   (--accent / --tip / --warn / --panel / --border / --bg / --ink*).
+   ============================================================================ */
+
+/* Give the landing room: drop the typeset reading max-width on this page */
+.md-typeset .cc-hero,
+.md-typeset .cc-shot,
+.md-typeset .cc-features,
+.md-typeset .cc-links { max-width: none; }
+
+/* ---- Hero ---- */
+.cc-hero {
+  position: relative;
+  text-align: center;
+  max-width: 46rem;
+  margin: 8px auto 8px;
+  padding: clamp(28px, 5vw, 56px) 16px 12px;
+}
+/* soft diagonal wash behind the hero (mockup background) */
+.cc-hero::before {
+  content: "";
+  position: absolute; inset: -8% -20% 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 70% at 50% 0%,
+      color-mix(in oklab, var(--accent) 9%, transparent), transparent 70%),
+    linear-gradient(135deg,
+      color-mix(in oklab, var(--panel-2) 60%, transparent),
+      transparent 55%,
+      color-mix(in oklab, var(--panel-2) 40%, transparent));
+}
+.cc-hero__wordmark {
+  width: auto;
+  max-width: min(100%, 34rem);
+  height: auto;
+  margin: 0 auto 18px;
+  display: block;
+}
+.cc-hero .kicker { margin-bottom: 12px; text-align: center; }
+.md-typeset .cc-hero h1 {
+  margin: 0 auto 16px;
+  max-width: 18ch;
+  font-size: clamp(34px, 5.2vw, 56px);
+}
+.cc-hero__tagline {
+  font-size: 17px; line-height: 1.6; color: var(--ink-2);
+  margin: 0 auto; max-width: 38rem;
+}
+
+/* ---- Hero CTA buttons ---- */
+.cc-hero__cta {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  justify-content: center; margin: 26px 0 4px;
+}
+.md-typeset a.cc-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--border-2);
+  background: var(--panel);
+  color: var(--ink);
+  font-weight: 600; font-size: 14.5px; letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: transform .16s, box-shadow .16s, border-color .16s, background .16s;
+}
+.md-typeset a.cc-btn:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--ink) 30%, var(--border-2));
+  box-shadow: 0 8px 22px color-mix(in oklab, var(--ink) 9%, transparent);
+}
+.md-typeset a.cc-btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: oklch(0.99 0 0);
+}
+.md-typeset a.cc-btn--primary:hover {
+  box-shadow: 0 10px 26px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+/* ---- Product screenshot ---- */
+.md-typeset figure.cc-shot {
+  max-width: 60rem;
+  margin: 8px auto 56px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--panel);
+  box-shadow: 0 24px 60px color-mix(in oklab, var(--ink) 10%, transparent);
+}
+.md-typeset figure.cc-shot img { display: block; width: 100%; }
+
+/* ---- Feature grid ---- */
+.cc-features {
+  max-width: 60rem;
+  margin: 0 auto 52px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.cc-feature {
+  padding: 22px 22px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+.md-typeset .cc-feature .cc-feature__icon {
+  font-size: 26px; color: var(--accent); line-height: 1;
+}
+.md-typeset .cc-feature .cc-feature__icon svg { width: 26px; height: 26px; fill: var(--accent); }
+.cc-features .cc-feature:nth-child(4n+2) .cc-feature__icon,
+.cc-features .cc-feature:nth-child(4n+2) .cc-feature__icon svg { color: var(--tip); fill: var(--tip); }
+.cc-features .cc-feature:nth-child(4n+3) .cc-feature__icon,
+.cc-features .cc-feature:nth-child(4n+3) .cc-feature__icon svg { color: var(--warn); fill: var(--warn); }
+.md-typeset .cc-feature h3 { margin: 12px 0 6px; font-size: 16px; }
+.md-typeset .cc-feature p { margin: 0; font-size: 14px; line-height: 1.55; max-width: none; }
+
+/* ---- Link rows ---- */
+.cc-links {
+  max-width: 38rem;
+  margin: 0 auto 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.md-typeset .cc-links p { margin: 0; max-width: none; }
+
+.md-typeset .cc-links a.cc-link {
+  --c: var(--accent);
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 15px 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color .16s, transform .16s, box-shadow .16s;
+}
+.cc-links a.cc-link:nth-of-type(3n+2) { --c: var(--tip); }
+.cc-links a.cc-link:nth-of-type(3n+3) { --c: var(--warn); }
+.md-typeset .cc-links a.cc-link:hover {
+  border-color: color-mix(in oklab, var(--c) 55%, var(--border));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px color-mix(in oklab, var(--ink) 8%, transparent);
+}
+
+/* icon chip (Material renders the emoji icon as a leading <span class="twemoji">) */
+.cc-links a.cc-link .twemoji {
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  color: var(--c);
+  background: color-mix(in oklab, var(--c) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--c) 26%, transparent);
+}
+.cc-links a.cc-link .twemoji svg { width: 20px; height: 20px; fill: var(--c); }
+
+/* label + mono sublabel */
+.cc-links a.cc-link strong {
+  display: block;
+  font-weight: 600; font-size: 15.5px; letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.cc-links a.cc-link small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+  margin-top: 3px;
+}

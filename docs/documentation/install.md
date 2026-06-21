@@ -24,22 +24,121 @@ title: Install
 
 ## Quick start (Docker)
 
+<p class="lead">Docker builds the image, generates a session key, and keeps your data in a volume. This is the recommended way to run CatalogueCanvas.</p>
+
+### Before you start
+
+- **Docker + Docker Compose** installed and running.
+- The CatalogueCanvas source, which ships the `docker-compose.yml`:
+
+    ```bash
+    git clone https://github.com/ToroRojo-code/CatalogueCanvas.git
+    cd CatalogueCanvas
+    ```
+
+### Steps
+
 <ol class="steps" markdown>
 <li markdown>
-Start the app with an admin password:
+Start the app, passing an admin password. The first run builds the image, so it takes a little longer:
 
 ```bash
 CC_ADMIN_PASSWORD=yourpassword docker compose up --build
 ```
 </li>
-<li markdown>Open `http://localhost:8000` and log in with `CC_ADMIN_PASSWORD`.</li>
+<li markdown>
+Wait for the log line that says the server is listening on port `8000`.
+</li>
+<li markdown>
+Open `http://localhost:8000` and log in with the password you set in `CC_ADMIN_PASSWORD`.
+</li>
 </ol>
 
-The **session signing key is generated automatically** on first start and saved to
-`/data/cc_secret_key.txt` in the data volume, then reused on every restart — there's no
-manual key-generation or `secrets/` step.
+To run it in the background instead, add `-d`:
 
-All data (SQLite database + uploaded assets) persists in the `cc-data` Docker volume under `/data`.
+```bash
+CC_ADMIN_PASSWORD=yourpassword docker compose up --build -d
+```
+
+Stop it with `docker compose down` (your data volume is kept).
+
+### Using a `.env` file
+
+Setting more than one variable on the command line gets awkward. Docker Compose reads a file
+named `.env` in the same directory as `docker-compose.yml`, so you can keep your configuration
+there instead.
+
+<ol class="steps" markdown>
+<li markdown>
+Create a `.env` file next to `docker-compose.yml`:
+
+```ini
+# .env — CatalogueCanvas configuration
+CC_ADMIN_PASSWORD=yourpassword
+CC_PORT=8000
+CC_SITE_TITLE=My Catalogue
+CC_SITE_AUTHOR=Your Name
+```
+
+Add any other variables from [Configuration](#configuration) as `KEY=value` lines.
+</li>
+<li markdown>
+Start the app. Compose reads `.env`, so you do not repeat the variables:
+
+```bash
+docker compose up --build
+```
+</li>
+</ol>
+
+!!! warning "Keep `.env` out of version control"
+
+    The file holds your admin password. Add `.env` to your `.gitignore` so it is never committed.
+
+!!! note "Editors"
+
+    Confirm Compose interpolation against the shipped `docker-compose.yml` — whether each `CC_*`
+    variable is referenced as `${CC_...}` (so `.env` flows through to the container) or passed via
+    `env_file:`. Verify before publishing.
+
+### What happens on first start
+
+??? question "Where does my data live?"
+    All data — the SQLite database and every uploaded asset — persists in the `cc-data` Docker
+    volume, mounted at `/data` inside the container. Removing the container does not delete it;
+    `docker compose down -v` does. To keep data in a directory you control instead, see
+    [Home-server install](#home-server-install).
+
+??? question "Do I need to generate a secret key?"
+    No. The **session signing key is generated automatically** on first start and saved to
+    `/data/cc_secret_key.txt` in the data volume, then reused on every restart. There is no
+    manual key-generation or `secrets/` step. Set `CC_SECRET_KEY` or `CC_SECRET_KEY_FILE` only
+    if you want to supply your own.
+
+??? question "Which port does it use, and how do I change it?"
+    The container always listens on `8000`. The host port is mapped from `CC_PORT` (default
+    `8000`). To serve on, say, port `9000`:
+
+    ```bash
+    CC_ADMIN_PASSWORD=yourpassword CC_PORT=9000 docker compose up --build
+    ```
+
+??? question "How do I set the site title or author?"
+    Pass them as environment variables on the same command:
+
+    ```bash
+    CC_ADMIN_PASSWORD=yourpassword \
+    CC_SITE_TITLE="My Catalogue" \
+    CC_SITE_AUTHOR="Your Name" \
+    docker compose up --build
+    ```
+
+    See [Configuration](#configuration) for the full list of variables.
+
+!!! warning "Login fails silently?"
+
+    If you cannot log in, check that `CC_ADMIN_PASSWORD` was set on the command that started the
+    container — it is required. See [Troubleshooting](#troubleshooting) for other causes.
 
 ## Configuration
 

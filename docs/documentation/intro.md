@@ -31,10 +31,10 @@ publish curated portfolios as shareable slide-deck pages — all from a single D
 | **Portfolio** | A curated, shareable slide-deck of items. |
 | **Library** | A storage location for item assets. |
 
-→ Full definitions in the [Glossary](../documentation/glossary.md).
+→ Full definitions in the [Glossary](glossary.md).
 
 ## Next steps
 
 - New here? Read **[Uses & for whom](uses.md)**.
-- Want to run it? See **[Install](../documentation/install.md)**.
-- Using it day to day? See the **[User documentation](../documentation/user.md)**.
+- Want to run it? See **[Install](install.md)**.
+- Using it day to day? See the **[User documentation](user.md)**.

@@ -48,6 +48,9 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - attr_list
   - md_in_html
   - tables
@@ -58,16 +61,15 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - Home: index.md
-  - Showcase:
-      - Ethos: showcase/ethos.md
-      - Introduction: showcase/intro.md
-      - Uses & for whom: showcase/uses.md
-  - Catalog:
-      - Uploading items: catalog/uploading.md
+  - Introduction: index.md
   - Documentation:
+      - Home: home.md
+      - Ethos: documentation/ethos.md
+      - Uses & for whom: documentation/uses.md
+      - Introduction: documentation/intro.md
       - Install: documentation/install.md
       - User documentation: documentation/user.md
+      - Uploading items: documentation/uploading.md
       - Admin documentation: documentation/admins.md
       - Roadmap: documentation/roadmap.md
       - Glossary: documentation/glossary.md

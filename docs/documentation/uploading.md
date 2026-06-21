@@ -51,7 +51,7 @@ CatalogueCanvas can describe an item's preview image with any **OpenAI-compatibl
     container itself. Reasoning from "thinking" models is stripped from results, and the request
     timeout is 90 seconds to allow for slower local models.
 
-For full configuration and troubleshooting, see [Admin documentation → LLM / AI descriptions](../documentation/admins.md).
+For full configuration and troubleshooting, see [Admin documentation → LLM / AI descriptions](admins.md).
 
 ## Supported file types
 
