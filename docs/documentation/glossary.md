@@ -74,15 +74,15 @@ An optional file inside a ZIP. If present, its contents are read and stored with
 included in the full-text search index.
 
 ### Metadata record (JSON-LD)
-A machine-readable description of an item in **JSON-LD** (schema.org / Dublin Core), served at
-`/api/items/{id}/metadata` and linked from the item page. It carries the item's persistent ID,
-standard terms for title/description/tags, and the uploaded metadata — making items findable and
-harvestable by external tools.
+A machine-readable description of an item in **JSON-LD** (schema.org `VisualArtwork` / Dublin
+Core), served at `/api/items/{id}/metadata` and linked from the item page. It embeds the item's
+persistent ID as `@id` / `identifier`, standard terms for title/description/tags, and the
+uploaded metadata — making items findable and harvestable by external tools.
 
 ### Multi-user mode
 An optional mode in which users sign in with a **username and password** and hold either the
-**Admin** or **Reader** role. The admin and reader passwords must differ. With it off, the
-instance uses a single-password admin login.
+**Admin** or **Reader** role. Every user's password must be unique. With it off, the instance
+uses a single-password admin login.
 
 ### Notes
 Per-item free text written in **Markdown**, rendered as formatted text with a raw-edit mode.

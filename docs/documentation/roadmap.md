@@ -23,7 +23,7 @@ title: Roadmap
 - ✅ Multi-library storage
 - ✅ Database + full-asset backup/export
 - ✅ Appearance settings (theme, accent, nav, density)
-- ✅ Multi-user mode — Admin (full) and Reader (view-only, download-capable); passwords must differ
+- ✅ Multi-user mode — Admin (full) and Reader (view-only, download-capable); unique password per user
 - ✅ Auto-generated, persisted session signing key (no manual secret setup)
 - ✅ Build provenance recorded (git SHA + build date)
 - ✅ Redacted diagnostic report (Settings or CLI)

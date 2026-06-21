@@ -67,6 +67,11 @@ elsewhere; the tray shows live progress so you don't lose sight of it.
 
 ## Working with an item
 
+<figure markdown>
+  ![An item page](../assets/sc_Main_CatalogueCanvas.png)
+  <figcaption>An item page — preview, files, title/tags/notes, collections, and LLM description</figcaption>
+</figure>
+
 On an item's page you can:
 
 - Edit the **title** and **tags**.

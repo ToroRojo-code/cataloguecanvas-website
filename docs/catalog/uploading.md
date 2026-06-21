@@ -91,6 +91,11 @@ CC-0186,"Cyan Field","experiment,color",""
 Then open **Bulk actions → Import metadata** and drop the file. A preview shows exactly which
 items will change before you commit.
 
+<figure markdown>
+  ![Batch metadata CSV settings](../assets/sc_BatchMetadata_CatalogueCanvas.png)
+  <figcaption>Settings → Batch metadata (CSV) — export, re-import, and per-import backups</figcaption>
+</figure>
+
 <div class="keys" markdown>
 <kbd>⌘</kbd> <kbd>U</kbd> Upload &nbsp;·&nbsp; <kbd>/</kbd> Search catalogue &nbsp;·&nbsp; <kbd>⌘</kbd> <kbd>Enter</kbd> Save changes &nbsp;·&nbsp; <kbd>Esc</kbd> Close panel
 </div>

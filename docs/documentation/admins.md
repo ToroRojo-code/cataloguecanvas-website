@@ -22,8 +22,8 @@ session cookie.
   modify anything; all admin-only menus and controls are hidden.
 - **Public visitor** — no login; can only reach portfolios marked **Public**.
 
-When multi-user mode is **on**, users sign in with a **username and password**, and the admin
-and reader passwords must differ. When it is **off**, the original single-password admin login
+When multi-user mode is **on**, users sign in with a **username and password**, and every
+user's password must be **unique**. When it is **off**, the original single-password admin login
 is used. The signed-in username is shown next to the **Log out** button. Admins manage accounts
 from the **Users** panel in Settings.
 
@@ -31,10 +31,12 @@ Security notes:
 
 - Login is **rate-limited**: 5 failed attempts from one address in 5 minutes blocks further tries.
 - Passwords are hashed (argon2); sessions use a signed cookie.
+- Sessions are **server-tracked and revocable**, and state-changing requests are protected
+  against CSRF with a double-submit token.
 - The session signing key is generated automatically on first start and persisted at
   `<CC_DATA_DIR>/cc_secret_key.txt` — no manual setup required.
-- Set a strong `CC_ADMIN_PASSWORD` in production (and a distinct reader password if multi-user
-  mode is enabled).
+- Set a strong `CC_ADMIN_PASSWORD` in production (and a distinct password for every account in
+  multi-user mode).
 
 ## Settings overview
 
@@ -44,10 +46,21 @@ The **Settings** page groups: Appearance, Users, LLM defaults, Prompt template, 
 Theme (light/dark), accent colour, navigation layout (top/side), density (airy/balanced/dense),
 and enable/disable **Favourites**.
 
+<figure markdown>
+  ![Appearance settings](../assets/sc_Appearance_CatalogueCanvas.png)
+  <figcaption>Settings → Appearance</figcaption>
+</figure>
+
 ### Users
 Enable **multi-user mode** and manage accounts. Each user has a username, a password, and a
-role (Admin or Reader). The admin and reader passwords must differ. With multi-user mode off,
-the instance uses the single-password admin login.
+role (Admin or Reader). Every user's password must be unique. The **last remaining admin**
+cannot be demoted or deleted. With multi-user mode off, the instance uses the single-password
+admin login.
+
+<figure markdown>
+  ![Multi-user access settings](../assets/sc_MultiUser_CatalogueCanvas.png)
+  <figcaption>Settings → Users (multi-user mode on, with Admin and Reader accounts)</figcaption>
+</figure>
 
 ### LLM defaults
 
@@ -61,10 +74,20 @@ the instance uses the single-password admin login.
 | Max words per bullet | Length cap per bullet |
 | Generate description (LLM) | Whether the item editor offers a generate button |
 
+<figure markdown>
+  ![LLM defaults settings](../assets/sc_LLM_CatalogueCanvas.png)
+  <figcaption>Settings → LLM defaults</figcaption>
+</figure>
+
 ### Prompt template
 Edit the raw **TOML** prompt used to build the LLM request. Placeholders:
 `{item_type}`, `{summary_focus}`, `{bullet_count}`, `{bullet_max_words}`. Includes a
 **reset-to-default** option.
+
+<figure markdown>
+  ![Prompt template settings](../assets/sc_Prompt_CatalogueCanvas.png)
+  <figcaption>Settings → Prompt template</figcaption>
+</figure>
 
 ### Libraries (multi-storage)
 
@@ -74,11 +97,21 @@ Edit the raw **TOML** prompt used to build the LLM request. Placeholders:
 - Constraints: a library's **path can't change** once it holds items; a library **can't be deleted**
   while it contains items or while it is the default.
 
+<figure markdown>
+  ![Libraries settings](../assets/sc_Libraries_CatalogueCanvas.png)
+  <figcaption>Settings → Libraries</figcaption>
+</figure>
+
 ### Backup & export
 
 - **Database backup** — a single SQLite snapshot.
 - **Full backup** — a ZIP of the database **plus every stored asset** across all libraries.
 - Live stats shown: total items, total collections, items missing a preview.
+
+<figure markdown>
+  ![Backup and export settings](../assets/sc_Backup_CatalogueCanvas.png)
+  <figcaption>Settings → Backup &amp; export</figcaption>
+</figure>
 
 ## LLM / AI descriptions in depth
 
@@ -101,11 +134,11 @@ Edit the raw **TOML** prompt used to build the LLM request. Placeholders:
 - **Full-text search** covers every item's title, description/note, tags, and the full contents
   of its uploaded `metadata.json` / `metadata.toml`. Results are ranked by relevance, with prefix
   matching. Search is handled on the server.
-- Each item exposes a **machine-readable metadata record** in **JSON-LD** (schema.org / Dublin
-  Core) at `/api/items/{id}/metadata`, linked from the item page. The record uses the item's
-  persistent ID as its identifier, maps title, description, and tags to standard terms, and
-  carries the uploaded metadata as additional properties — so items are **findable and
-  harvestable by external tools** (the "F" in FAIR).
+- Each item exposes a **machine-readable metadata record** in **JSON-LD** (schema.org
+  `VisualArtwork` / Dublin Core) at `/api/items/{id}/metadata`, linked from the item page. The
+  record embeds the item's persistent ID as `@id` / `identifier`, maps title, description, and
+  tags to standard terms, and carries the uploaded metadata as additional properties — so items
+  are **findable and harvestable by external tools** (the "F" in FAIR).
 
 ## How items are stored (operator view)
 

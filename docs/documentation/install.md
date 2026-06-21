@@ -46,6 +46,7 @@ All data (SQLite database + uploaded assets) persists in the `cc-data` Docker vo
 | Variable | Default | Description |
 |---|---|---|
 | `CC_ADMIN_PASSWORD` | _(empty)_ | Admin login password — required to log in |
+| `CC_PORT` | `8000` | Host port mapped to the container (the container always listens on 8000) |
 | `CC_SECRET_KEY_FILE` | `<CC_DATA_DIR>/cc_secret_key.txt` | Path to the session signing key. Auto-generated and persisted on first start; only set this to override the location |
 | `CC_SECRET_KEY` | _(unset)_ | Session signing key as an env var — optional override; if neither this nor the key file is set, a key is generated automatically |
 | `CC_SITE_TITLE` | `My Catalogue` | Title shown in the UI and on public portfolios |
@@ -107,10 +108,7 @@ CC_ADMIN_PASSWORD=yourpassword docker compose up -d
 
 !!! note "Editors"
 
-    TODO, reconcile against the app before publishing: exposing the service on a LAN,
-    putting it behind a reverse proxy (Caddy / Nginx / Traefik) for a hostname and TLS,
-    and any ARM/Raspberry Pi image notes. **Do not** recommend exposing this to the
-    public internet. The FAQ already warns against it.
+    TODO, reconcile against the app before publishing: exposing the service on a LAN, putting it behind a reverse proxy (Caddy / Nginx / Traefik) for a hostname and TLS, and any ARM/Raspberry Pi image notes. **Do not** recommend exposing this to the public internet. The FAQ already warns against it.
 
 ## Advanced: bare-metal install (no Docker)
 
@@ -118,11 +116,9 @@ CC_ADMIN_PASSWORD=yourpassword docker compose up -d
 
 !!! warning
 
-    This path is unsupported. Docker is the recommended deployment. You manage the process
-    manager, reverse proxy, and updates yourself.
+    This path is unsupported. Docker is the recommended deployment. You manage the process manager, reverse proxy, and updates yourself.
 
-Pick your operating system below. Each block lists the prerequisites and the commands to take a
-clean machine to a built app. The shared run and upgrade steps follow underneath.
+Pick your operating system below. Each block lists the prerequisites and the commands to take a clean machine to a built app. The shared run and upgrade steps follow underneath.
 
 <!-- TEMPLATE: one collapsible block per OS. `???` = collapsed. Indent contents four spaces.
      Verify every package name and command against the app before publishing. -->
@@ -213,8 +209,7 @@ clean machine to a built app. The shared run and upgrade steps follow underneath
     ```
 
 ??? question "Windows (no Docker, no WSL)"
-    Tested end to end on Windows 11. The Docker entrypoint does not run here, so you set a few
-    environment variables by hand that Docker would otherwise set for you (see **Run it** below).
+    Tested end to end on Windows 11. The Docker entrypoint does not run here, so you set a few environment variables by hand that Docker would otherwise set for you (see **Run it** below).
 
     **Prerequisites** (install once via `winget`)
 
@@ -245,22 +240,16 @@ clean machine to a built app. The shared run and upgrade steps follow underneath
 
     !!! warning "SVG previews need Cairo"
 
-        On a stock Windows machine, ingesting an item whose preview is an **SVG** fails with
-        HTTP 500 until the native **Cairo** library is installed. Raster previews (PNG/JPEG/TIFF),
-        browsing, and login are unaffected.
+        On a stock Windows machine, ingesting an item whose preview is an **SVG** fails with HTTP 500 until the native **Cairo** library is installed. Raster previews (PNG/JPEG/TIFF), browsing, and login are unaffected.
 
-        On **x64**, get Cairo from the [Cairo download page](https://cairographics.org/download/).
-        The Windows binaries come with the GTK runtime: install an x64 GTK runtime, or grab the
-        cairo, zlib, and libpng run-time archives directly and put `libcairo-2.dll` (with
-        `zlib1.dll` and `libpng`) on `PATH`, then restart the server.
+        On **x64**, get Cairo from the [Cairo download page](https://cairographics.org/download/). The Windows binaries come with the GTK runtime: install an x64 GTK runtime, or grab the cairo, zlib, and libpng run-time archives directly and put `libcairo-2.dll` (with `zlib1.dll` and `libpng`) on `PATH`, then restart the server.
 
         On **Windows ARM64**, Cairo needs the MSYS2 toolchain instead.
         <!-- TODO Editors: port the "SVG rendering on Windows ARM64" section from inputdoc/cataloguecanvas-features.md if ARM64 support is in scope for the docs. -->
 
 ### Run it
 
-Once built, run the backend as a long-lived process. Leave off `--reload`, and set the required
-environment variables.
+Once built, run the backend as a long-lived process. Leave off `--reload`, and set the required environment variables.
 
 On Linux and macOS:
 
@@ -270,8 +259,7 @@ CC_DATA_DIR=/srv/cataloguecanvas/data \
 uv run uvicorn cataloguecanvas.main:app --host 0.0.0.0 --port 8000
 ```
 
-On Windows, set the variables the Docker entrypoint would normally set. A `run-cc.bat` keeps it in
-one place:
+On Windows, set the variables the Docker entrypoint would normally set. A `run-cc.bat` keeps it in one place:
 
 ```bat
 @echo off
@@ -288,25 +276,16 @@ Then open `http://localhost:8000`, or `http://<machine-ip>:8000` from another de
 
 !!! danger "Windows over plain HTTP: set `CC_COOKIE_SECURE=false`"
 
-    `CC_COOKIE_SECURE` defaults to `true`. Over plain HTTP (LAN or local testing) a secure cookie
-    does not round-trip and **login silently fails** with no error. Set it to `false` when serving
-    over HTTP. Generate `CC_SECRET_KEY` with
-    `uv run python -c "import secrets; print(secrets.token_hex(32))"`; without it, the bare-metal
+    `CC_COOKIE_SECURE` defaults to `true`. Over plain HTTP (LAN or local testing) a secure cookie does not round-trip and **login silently fails** with no error. Set it to `false` when serving over HTTP. Generate `CC_SECRET_KEY` with `uv run python -c "import secrets; print(secrets.token_hex(32))"`; without it, the bare-metal
     server falls back to an insecure default.
 
 !!! note "Editors"
 
-    TODO, reconcile against the app before publishing: confirm each OS's package names,
-    the minimum versions, and the clone URL; the production process manager (a `systemd`
-    unit or Windows Task Scheduler / NSSM example); running behind a reverse proxy for TLS;
-    and the upgrade procedure (pull, rebuild frontend, `uv sync`, restart). Verify all env
-    vars against `server/src/cataloguecanvas/settings.py`. The cross-platform backslash URL
-    issue noted in the feature handover may also be worth a troubleshooting entry.
+    TODO, reconcile against the app before publishing: confirm each OS's package names, the minimum versions, and the clone URL; the production process manager (a `systemd` unit or Windows Task Scheduler / NSSM example); running behind a reverse proxy for TLS; and the upgrade procedure (pull, rebuild frontend, `uv sync`, restart). Verify all env vars against `server/src/cataloguecanvas/settings.py`. The cross-platform backslash URL issue noted in the feature handover may also be worth a troubleshooting entry.
 
 ## Connecting a local LLM
 
-If CatalogueCanvas runs in Docker and your LLM server (LM Studio, Ollama, …) runs on the host,
-point the API URL at the host bridge, **not** `localhost`:
+If CatalogueCanvas runs in Docker and your LLM server (LM Studio, Ollama, …) runs on the host, point the API URL at the host bridge, **not** `localhost`:
 
 ```
 http://host.docker.internal:1234
@@ -314,13 +293,12 @@ http://host.docker.internal:1234
 
 `localhost` inside the container refers to the container itself.
 
-The `/v1/chat/completions` path is **appended automatically** — you only need the host and
-port. A full URL still works if you prefer to supply one.
+The `/v1/chat/completions` path is **appended automatically** — you only need the host and port. A full URL still works if you prefer to supply one.
 
 ## Troubleshooting
 
 | Symptom | Likely cause / fix |
 |---|---|
 | LLM request fails | Endpoint unreachable or misconfigured — the error now reports the actual cause (connection, HTTP error, non-JSON, or no choices returned). Check the API URL; use `host.docker.internal` from Docker |
-| Can't log in | `CC_ADMIN_PASSWORD` not set; in multi-user mode the admin and reader passwords must differ; or 5 failed attempts triggered the 5-minute rate limit |
+| Can't log in | `CC_ADMIN_PASSWORD` not set; in multi-user mode every user's password must be unique; or 5 failed attempts triggered the 5-minute rate limit |
 | Upload rejected | File isn't a `.zip`, or exceeds the configured max upload size |
