@@ -336,14 +336,18 @@ body { font-family: var(--sans); -webkit-font-smoothing: antialiased; }
       transparent 55%,
       color-mix(in oklab, var(--panel-2) 40%, transparent));
 }
+/* The markdown processor wraps the logo <img> in a <p>; centre that wrapper
+   and drop the typeset reading width so hero elements honour text-align. */
+.md-typeset .cc-hero p { max-width: none; text-align: center; }
+.cc-hero p:has(.cc-hero__wordmark) { margin-bottom: 18px; }
 .cc-hero__wordmark {
   width: auto;
   max-width: min(100%, 34rem);
   height: auto;
-  margin: 0 auto 18px;
+  margin: 0 auto;
   display: block;
 }
-.cc-hero .kicker { margin-bottom: 12px; text-align: center; }
+.md-typeset .cc-hero .kicker { margin-bottom: 12px; text-align: center; }
 .md-typeset .cc-hero h1 {
   margin: 0 auto 16px;
   max-width: 18ch;
