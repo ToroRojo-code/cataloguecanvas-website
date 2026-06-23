@@ -313,6 +313,7 @@ body { font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 .md-typeset .cc-hero,
 .md-typeset .cc-shot,
 .md-typeset .cc-features,
+.md-typeset .cc-who,
 .md-typeset .cc-links { max-width: none; }
 
 /* ---- Hero ---- */
@@ -386,6 +387,20 @@ body { font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 }
 .md-typeset a.cc-btn--primary:hover {
   box-shadow: 0 10px 26px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+.cc-hero__cta--center { margin: 8px auto 56px; }
+
+/* ---- "Built for…" audience band ---- */
+.cc-who {
+  max-width: 46rem;
+  margin: 0 auto 44px;
+  text-align: center;
+  padding: 0 16px;
+}
+.md-typeset .cc-who h2 { margin: 0 auto 14px; font-size: clamp(22px, 3vw, 30px); }
+.md-typeset .cc-who p {
+  margin: 0 auto 22px; max-width: 42rem;
+  font-size: 16px; line-height: 1.6; color: var(--ink-2);
 }
 
 /* ---- Product screenshot ---- */
