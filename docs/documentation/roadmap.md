@@ -10,33 +10,33 @@ title: Roadmap
 
 ## In progress / planned (not in order)
 
-- 🎥 Render/store p5.js processing outputs
-- 🔐 Watermark on portfolio images 
-- 📝 Security audit for exposed versions
-- 💡 Templates for portfolios — a rule-set skill for an LLM to generate one
-- 👀 Code Test [coverture](https://www.codacy.com/coverage)
-
+- :octicons-light-bulb-16: Render/store p5.js processing outputs
+- :octicons-light-bulb-16: Watermark on portfolio images
+- :octicons-light-bulb-16: Security audit for exposed versions
+- :octicons-light-bulb-16: Code Test [coverture](https://www.codacy.com/coverage)
 
 ## Shipped
 
-- ✅ ZIP ingestion with content-hash deduplication
-- ✅ WebP preview conversion; LZ4-compressed SVG storage
-- ✅ Collections + built-in Favourites
-- ✅ Markdown notes per item
-- ✅ Bulk actions (tags, clear notes, favourite, download, collections)
-- ✅ Keyboard navigation between items (← / →)
-- ✅ Public portfolios (slide-deck) at `/p/<slug>`
-- ✅ Vision-LLM descriptions (OpenAI-compatible)
-- ✅ Full-text search over all metadata, plus a JSON-LD metadata record per item (FAIR — Findable)
-- ✅ Multi-library storage
-- ✅ Database + full-asset backup/export
-- ✅ Appearance settings (theme, accent, nav, density)
-- ✅ Multi-user mode — Admin (full) and Reader (view-only, download-capable); unique password per user
-- ✅ Auto-generated, persisted session signing key (no manual secret setup)
-- ✅ Build provenance recorded (git SHA + build date)
-- ✅ Redacted diagnostic report (Settings or CLI)
-- ✅ On-brand 404 page
-- ✅ Catalogue sorting & filtering controls
+- :octicons-checkbox-16: ZIP ingestion with content-hash deduplication
+- :octicons-checkbox-16: WebP preview conversion; LZ4-compressed SVG storage
+- :octicons-checkbox-16: Collections + built-in Favourites
+- :octicons-checkbox-16: Markdown notes per item
+- :octicons-checkbox-16: Bulk metadata download/upload edits.
+- :octicons-checkbox-16: Bulk actions (tags, clear notes, favourite, download, collections)
+- :octicons-checkbox-16: Keyboard navigation between items (← / →)
+- :octicons-checkbox-16: Public portfolios (slide-deck) at `/p/<slug>`
+- :octicons-checkbox-16: Vision-LLM descriptions (OpenAI-compatible)
+- :octicons-checkbox-16: Full-text search over all metadata, plus a JSON-LD metadata record per item (FAIR — Findable)
+- :octicons-checkbox-16: Multi-library storage
+- :octicons-checkbox-16: Database + full-asset backup/export
+- :octicons-checkbox-16: Appearance settings (theme, accent, nav, density)
+- :octicons-checkbox-16: Multi-user mode — Admin (full) and Reader (view-only, download-capable); unique password per user
+- :octicons-checkbox-16: Auto-generated, persisted session signing key (no manual secret setup)
+- :octicons-checkbox-16: Build provenance recorded (git SHA + build date)
+- :octicons-checkbox-16: Redacted diagnostic report (Settings or CLI)
+- :octicons-checkbox-16: On-brand 404 page
+- :octicons-checkbox-16: Catalogue sorting & filtering controls
+- :octicons-checkbox-16: Templates for portfolios — a rule-set skill for an LLM to generate one
 
 
 
