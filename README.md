@@ -1,6 +1,6 @@
 # CatalogueCanvas — Documentation Website
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d6aaf28841f44ebc8c822f85f42e772a)](https://app.codacy.com/gh/ToroRojo-code/cataloguecanvas-website/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/39d5beef2e1c496187016fd4830d10f3)](https://app.codacy.com/gh/CatalogueCanvas/cataloguecanvas-website/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 
 The documentation and showcase website for [CatalogueCanvas](#about-cataloguecanvas), built with
