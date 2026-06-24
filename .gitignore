@@ -10,3 +10,4 @@ __pycache__/
 # MkDocs build output
 site/
 plans.md
+inputdoc/
