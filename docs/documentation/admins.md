@@ -43,6 +43,7 @@ Security notes:
 The **Settings** page groups: Appearance, Users, LLM defaults, Prompt template, Libraries, and Backup & export.
 
 ### Appearance
+
 Theme (light/dark), accent colour, navigation layout (top/side), density (airy/balanced/dense),
 and enable/disable **Favourites**.
 
@@ -52,6 +53,7 @@ and enable/disable **Favourites**.
 </figure>
 
 ### Users
+
 Enable **multi-user mode** and manage accounts. Each user has a username, a password, and a
 role (Admin or Reader). Every user's password must be unique. The **last remaining admin**
 cannot be demoted or deleted. With multi-user mode off, the instance uses the single-password
@@ -80,6 +82,7 @@ admin login.
 </figure>
 
 ### Prompt template
+
 Edit the raw **TOML** prompt used to build the LLM request. Placeholders:
 `{item_type}`, `{summary_focus}`, `{bullet_count}`, `{bullet_max_words}`. Includes a
 **reset-to-default** option.

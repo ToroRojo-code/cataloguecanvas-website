@@ -29,7 +29,7 @@ The `site/` directory is the generated static site; it is git-ignored.
 
 ## Project layout
 
-```
+```text
 docs/
   index.md                  # home
   showcase/                 # ethos, intro, uses & for whom
