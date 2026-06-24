@@ -1,0 +1,21 @@
+{
+  // markdownlint config for the CatalogueCanvas docs site.
+  // Tuned for MkDocs Material + pymdownx extensions. See .github/workflows/markdownlint.yml.
+  "default": true,
+
+  // --- Disabled: conflict with MkDocs Material / pymdownx syntax or prose style ---
+  "MD013": false, // Line length — prose docs wrap naturally; 80-char limit is noise.
+  "MD033": false, // Inline HTML — required: md_in_html, attr_list, cc-* hero divs in index.md.
+  "MD041": false, // First line must be H1 — index.md opens with frontmatter + custom hero.
+  "MD046": false, // Code block style — pymdownx.superfences mixes fenced/indented.
+  "MD034": false, // Bare URLs — Material auto-links; bare URLs are sometimes intentional.
+  "MD007": false, // Unordered list indent — tasklist/nested admonitions use varied indent.
+  "MD025": false, // Single H1 — pages have frontmatter title + an # heading (false positive).
+  "MD060": false, // Table column style — cosmetic pipe padding; renders identically in Material.
+  "MD050": false, // Strong style — __bold__ (underscore) is valid and renders identically.
+  "MD053": false  // Reference definitions — pymdownx footnotes ([^x]) misread as unused (destructive on --fix).
+
+  // Everything else stays on via "default": true, including:
+  // MD001 heading increment, MD009 trailing spaces, MD010 hard tabs, MD012 multiple
+  // blanks, MD018-MD026 heading hygiene, MD040 fenced code language, MD047 trailing newline.
+}

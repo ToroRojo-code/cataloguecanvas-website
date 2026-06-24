@@ -45,6 +45,7 @@ Start the app, passing an admin password. The first run builds the image, so it 
 ```bash
 CC_ADMIN_PASSWORD=yourpassword docker compose up --build
 ```
+
 </li>
 <li markdown>
 Wait for the log line that says the server is listening on port `8000`.
@@ -88,6 +89,7 @@ Start the app. Compose reads `.env`, so you do not repeat the variables:
 ```bash
 docker compose up --build
 ```
+
 </li>
 </ol>
 
@@ -192,6 +194,7 @@ Pick a directory on the host for persistent data and point the data volume at it
 ```bash
 mkdir -p /srv/cataloguecanvas/data
 ```
+
 </li>
 <li markdown>
 Start it with the data directory bind-mounted and a restart policy so it comes back after a reboot:
@@ -386,7 +389,7 @@ Then open `http://localhost:8000`, or `http://<machine-ip>:8000` from another de
 
 If CatalogueCanvas runs in Docker and your LLM server (LM Studio, Ollama, …) runs on the host, point the API URL at the host bridge, **not** `localhost`:
 
-```
+```text
 http://host.docker.internal:1234
 ```
 

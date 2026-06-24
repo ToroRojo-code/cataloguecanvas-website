@@ -138,7 +138,7 @@ light/dark/accent appearance. Existing portfolios use **Ledger** by default.
 
 <div class="grid cards" markdown>
 
--   __Ledger__ (default)
+- __Ledger__ (default)
 
     ---
 
@@ -148,7 +148,7 @@ light/dark/accent appearance. Existing portfolios use **Ledger** by default.
       ![Ledger theme](../assets/porfolio_Ledger.png){ width="300" }
     </figure>
 
--   __Kinetic__
+- __Kinetic__
 
     ---
 
@@ -158,7 +158,7 @@ light/dark/accent appearance. Existing portfolios use **Ledger** by default.
       ![Kinetic theme](../assets/porfolio_Kinetic.png){ width="300" }
     </figure>
 
--   __Brutalist__
+- __Brutalist__
 
     ---
 
@@ -168,7 +168,7 @@ light/dark/accent appearance. Existing portfolios use **Ledger** by default.
       ![Brutalist theme](../assets/porfolio_Brutalist.png){ width="300" }
     </figure>
 
--   __Riso__
+- __Riso__
 
     ---
 
@@ -198,6 +198,5 @@ single `index.html` — with the chosen theme baked in — the WebP previews, an
 - **Several images in one ZIP?** The preview is chosen by priority (PNG → JPEG → TIFF → SVG); a note explains which was used.
 - **Can't find an item?** Search covers titles, notes, tags, and the contents of uploaded `metadata.json` / `metadata.toml` — try a value from the item's metadata.
 - **Keyboard:** ← / → move between items on the item page.
-
 
 [^www]: **Static web server** — There are free services with free tier web server perfect for this role like [codeberg](https://codeberg.page/), [github](https://docs.github.com/en/pages), [tiiny.host](https://tiiny.host/), [cloudflare](https://pages.cloudflare.com/)

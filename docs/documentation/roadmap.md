@@ -38,6 +38,4 @@ title: Roadmap
 - :octicons-checkbox-16: Catalogue sorting & filtering controls
 - :octicons-checkbox-16: Templates for portfolios — a rule-set skill for an LLM to generate one
 
-
-
 <!-- ✅🔐🎥💡👀 !®️♾️➰ 🔴🟠🟡🟢 -->
