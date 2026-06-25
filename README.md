@@ -1,6 +1,10 @@
 # CatalogueCanvas — Documentation Website
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/39d5beef2e1c496187016fd4830d10f3)](https://app.codacy.com/gh/CatalogueCanvas/cataloguecanvas-website/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Build](https://github.com/CatalogueCanvas/cataloguecanvas-website/actions/workflows/build.yml/badge.svg)](https://github.com/CatalogueCanvas/cataloguecanvas-website/actions/workflows/build.yml)
+[![Markdown Lint](https://github.com/CatalogueCanvas/cataloguecanvas-website/actions/workflows/markdownlint.yml/badge.svg)](https://github.com/CatalogueCanvas/cataloguecanvas-website/actions/workflows/markdownlint.yml)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
 
 The documentation and showcase website for [CatalogueCanvas](#about-cataloguecanvas), built with
 **MkDocs** and the **Material** theme. The visual language (oklch tokens, IBM Plex Mono / Spectral /
