@@ -1,0 +1,6 @@
+---
+exclude_paths:
+  - "inputdoc/**"
+  - "site/**"
+  - ".venv/**"
+  - "node_modules/**"

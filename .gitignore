@@ -11,3 +11,4 @@ __pycache__/
 site/
 plans.md
 inputdoc/
+secret.toml
