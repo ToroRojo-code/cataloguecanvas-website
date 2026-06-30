@@ -24,7 +24,30 @@ title: Install
 
 ## Quick start (Docker)
 
-<p class="lead">Docker builds the image, generates a session key, and keeps your data in a volume. This is the recommended way to run CatalogueCanvas.</p>
+<p class="lead">Docker generates a session key and keeps your data in a volume. This is the recommended way to run CatalogueCanvas.</p>
+
+A prebuilt image is published to the GitHub Container Registry, so you do not need to clone the
+source or build it yourself:
+
+```bash
+docker pull ghcr.io/cataloguecanvas/cataloguecanvas:0.1.0
+```
+
+```bash
+docker run -d \
+  -p 8000:8000 \
+  -e CC_ADMIN_PASSWORD=yourpassword \
+  -v cc-data:/data \
+  ghcr.io/cataloguecanvas/cataloguecanvas:0.1.0
+```
+
+!!! note "Editors"
+
+    Verify the `docker run` flags (port, volume mount path) against the published image before
+    publishing. Confirm it matches `CC_DATA_DIR` and the exposed port in
+    `server/src/cataloguecanvas/settings.py`.
+
+To build from source instead, or to use `docker-compose.yml`, continue below.
 
 ### Before you start
 
