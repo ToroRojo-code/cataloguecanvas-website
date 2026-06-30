@@ -1,26 +1,31 @@
-name: build
+name: deploy
 
 on:
-  pull_request:
+  push:
+    branches: [main]
     paths:
       - "docs/**"
       - "overrides/**"
       - "mkdocs.yml"
       - "pyproject.toml"
       - "uv.lock"
-      - ".github/workflows/build.yml"
-  push:
-    branches: [main]
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  mkdocs-strict:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
       - name: Install uv
         uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5
         with:
@@ -29,5 +34,5 @@ jobs:
         run: uv python install 3.11
       - name: Sync dependencies
         run: uv sync --frozen
-      - name: Build site (strict)
-        run: uv run mkdocs build --strict
+      - name: Deploy to GitHub Pages
+        run: uv run mkdocs gh-deploy --force --strict
