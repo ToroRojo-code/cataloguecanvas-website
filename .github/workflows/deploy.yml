@@ -11,6 +11,10 @@ on:
       - "uv.lock"
       - ".github/workflows/deploy.yml"
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
